@@ -1,4 +1,5 @@
 h1{
+    font-size: 50px;
     background-color: aqua;
     color: midnightblue;
 }
@@ -18,17 +19,23 @@ ol{
     display:inline-block
 }
 
-.catalogImages{
+.flex-container {
+    display: flex;
+  }
+  
+  .flex-container > div {
+    background-color: #f1f1f1;
+    margin: 10px;
+    padding: 20px;
+    font-size: 30px;
+  }
+
+section div img{
     height: 300px;
     width: 300px;
 }
 
-section{
-    background-color:gray;
-    height: 300px;
-}
-
-p{
+section p{
     color: midnightblue;
 }   
 
