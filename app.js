@@ -26,7 +26,7 @@ function Product(name, imageUrl){
   this.imageUrl = imageUrl;
   this.timesClicked = 0;
   allProducts.push(this);
-
+}
 
     new Product('Bag', 'images/bag.jpg');
     new Product('Banana', 'images/banana.jpg');
