@@ -1,99 +1,113 @@
 "use strict";
 console.log("Open for BusMall!");
 
-// Display three unique products by chance so that the viewers can pick a favorite.
-
-// Create a constructor function that creates an object associated with each product, and has the following properties:
-
-// Name of the product
-// File path of image
-// Times the image has been shown
-
-
-//These are in an html collection(array) use ref to image index instead of id's for tracking images shown we are still going to count total clicks and each image's click amount.
-
-var productElements = document.getElementsByTagName('img');
-
-var productIndex1 = 0;
-var productIndex2 = 1;
-var productIndex3 = 2;
-
-var rounds = 5;
+var nextProductIndex1 = 0;
+var nextProductIndex2 = 0;
+var nextProductIndex3 = 0;
 var allProducts = [];
+
+collectMarketingData();
+
+function collectMarketingData (){
+  createProductCatalog ();
+  selectRandomProducts ();
+  displayRandomProducts ();
+  countTimesImagesShown ();
+}
+
+function createProductCatalog (){
+  new Product('Bag', 'images/bag.jpg');
+  new Product('Banana', 'images/banana.jpg');
+  new Product('Bathroom', 'images/bathroom.jpg');
+  new Product('Boots', 'images/boots.jpg');
+  new Product('Breakfast', 'images/breakfast.jpg');
+  new Product('Bubblegum', 'images/bubblegum.jpg');
+  new Product('chair', 'images/chair.jpg');
+  new Product('Cthulhu', 'images/cthulhu.jpg');
+  new Product('Dog-Duck', 'images/dog-duck.jpg');
+  new Product('Dragon', 'images/dragon.jpg');
+  new Product('Pen', 'images/pen.jpg');
+  new Product('Pet-Sweep', 'images/pet-sweep.jpg');
+  new Product('Scissors', 'images/scissors.jpg');
+  new Product('Shark', 'images/shark.jpg');
+  new Product('Tauntaun', 'images/tauntaun.jpg');
+  new Product('Unicorn', 'images/unicorn.jpg');
+  new Product('USB', 'images/usb.gif');
+  new Product('Water-Can', 'images/water-can.jpg');
+  new Product('Wine-Glass', 'images/wine-glass.jpg');
+}
+
+function selectRandomProducts (){
+  nextProductIndex1 = Math.floor(Math.random() * allProducts.length);
+  
+  nextProductIndex2 = Math.floor(Math.random() * allProducts.length);
+  while((nextProductIndex2 === nextProductIndex1))
+  {
+    nextProductIndex2 = Math.floor(Math.random() * allProducts.length);
+  }
+
+  nextProductIndex3 = Math.floor(Math.random() * allProducts.length);
+  while((nextProductIndex3 === nextProductIndex2) || (nextProductIndex3 === nextProductIndex1))
+  {
+    nextProductIndex3 = Math.floor(Math.random() * allProducts.length);
+  }
+}
+
+function displayRandomProducts (){
+  var productElements = document.getElementsByTagName('img');
+
+  productElements[1].src = allProducts[nextProductIndex1].imageUrl;
+  productElements[2].src = allProducts[nextProductIndex2].imageUrl;
+  productElements[3].src = allProducts[nextProductIndex3].imageUrl;
+
+  for(var i = 0; i < productElements.length; i++){
+    console.log("You chose a product and I'm listening.");
+    productElements[i].addEventListener('click', productWasClicked);
+  }
+}
+
+function countTimesImagesShown (){
+  allProducts[nextProductIndex1].timesShown++;
+  allProducts[nextProductIndex2].timesShown++;
+  allProducts[nextProductIndex3].timesShown++;
+}
+
+var totalClicks = 0;
+function productWasClicked(event)
+{  totalClicks++;
+  if(event.srcElement[nextProductIndex1] === '1')
+  {
+    allProducts[nextProductIndex1].timesClicked++;
+  } 
+  
+  else if (event.srcElement[nextProductIndex2] === '2')
+  {
+    allProducts[nextProductIndex2].timesClicked++;
+  }
+  else if (event.srcElement[nextProductIndex3] === '3')
+  {
+    allProducts[nextProductIndex2].timesClicked++;
+  }
+
+  selectRandomProducts ();
+  displayRandomProducts ();
+  countTimesImagesShown ();
+    
+}
+
+  
+var rounds = 5;
+
 
 function Product(name, imageUrl){
   this.name = name;
   this.imageUrl = imageUrl;
   this.timesClicked = 0;
+  this.timesShown = 0;
   allProducts.push(this);
 }
 
-    new Product('Bag', 'images/bag.jpg');
-    new Product('Banana', 'images/banana.jpg');
-    new Product('Bathroom', 'images/bathroom.jpg');
-    new Product('Boots', 'images/boots.jpg');
-    new Product('Breakfast', 'images/breakfast.jpg');
-    new Product('Bubblegum', 'images/bubblegum.jpg');
-    new Product('chair', 'images/chair.jpg');
-    new Product('Cthulhu', 'images/cthulhu.jpg');
-    new Product('Dog-Duck', 'images/dog-duck.jpg');
-    new Product('Dragon', 'images/dragon.jpg');
-    new Product('Pen', 'images/pen.jpg');
-    new Product('Pet-Sweep', 'images/pet-sweep.jpg');
-    new Product('Scissors', 'images/scissors.jpg');
-    new Product('Shark', 'images/shark.jpg');
-    new Product('Tauntaun', 'images/tauntaun.jpg');
-    new Product('Unicorn', 'images/unicorn.jpg');
-    new Product('USB', 'images/usb.jpg');
-    new Product('Water-Can', 'images/water-can.jpg');
-    new Product('Wine-Glass', 'images/wine-glass.jpg');
-
-
-// Create an algorithm that will randomly generate three unique product images from the images directory and display them side-by-side-by-side in the browser window.
-
-var totalClicks = 0;
-function productWasClicked(event){
-
-  totalClicks++;
-  if(event.srcElement.id === '1'){
-    allProducts[productIndex1].timesClicked++;
-  } 
-  
-  else if (event.srcElement[productIndex2] === '2'){
-    allProducts[productIndex2].timesClicked++;
-  }
-    else if (event.srcElement[productIndex3] === '3'){
-      allProducts[productIndex2].timesClicked++;
-  }
-
-
-  //logic so that we dont see the same images from click to click
-  var nextProductIndex1 = Math.floor(Math.random() * allProducts.length);
-  while((nextProductIndex1 === productIndex1) || (nextProductIndex1 === nextProductIndex2)){
-    nextProductIndex1 = Math.floor(Math.random() * allProducts.length);
-  }
-
-  var nextProductIndex2 = Math.floor(Math.random() * allProducts.length);
-  while((nextProductIndex2 === productIndex2) || (nextProductIndex2 === nextProductIndex1)){
-    nextProductIndex2 = Math.floor(Math.random() * allProducts.length);
-  }
-
-  var nextProductIndex3 = Math.floor(Math.random() * allProducts.length);
-  while((nextProductIndex3 === productIndex3) || (nextProductIndex3 === nextProductIndex2 || === nextProductIndex1)){
-    nextProductIndex3 = Math.floor(Math.random() * allProducts.length);
-  }
-
-  //relfect the updates to the new values next products
-  //set up reference to new images.
-  productIndex1 = nextProductIndex1;
-  productIndex2 = nextProductIndex2;
-  productIndex3 = nextProductIndex3
-
-  // For each of the three images, increment its property of times it has been shown by one.
-
-  productElements[0].src = allProducts[productIndex1].imageUrl;
-  productElements[1].src = allProducts[productIndex2].imageUrl;
-  productElements[2].src = allProducts[productIndex3].imageUrl;
+ 
 
 
 if(totalClicks >= rounds){
@@ -104,19 +118,14 @@ if(totalClicks >= rounds){
     footerElement.textContent = 'You chose 5 products. Thank you for your input!';
   }//closing image was clicked.
 
-// Attach an event listener to the section of the HTML page where the images are going to be displayed.
-
-for(var i = 0; i < productElements.length; i++){
-  console.log("You chose a product and I'm listening.");
-  productElements[i].addEventListener('click', productWasClicked);
-}
 
 var resultsElement=document.getElementById('results');
 
-Products.prototype.render = function(){
+Product.prototype.render = function(){
   for (var i = 0; i < allProducts.length; i++){
     allProducts = document.createElement(np);
     var resultsStr = allProducts(i).name + 'was clicked:';
     allProducts.textContent = resultsStr;
     resultsElement.appendChild(); allProducts;
+}
 }
