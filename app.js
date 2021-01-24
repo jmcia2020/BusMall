@@ -52,13 +52,16 @@ function newProduct(name, imageUrl){
 // Create an algorithm that will randomly generate three unique product images from the images directory and display them side-by-side-by-side in the browser window.
 
 var totalClicks = 0;
-function imageWasClicked(event){
+function productWasClicked(event){
 
   totalClicks++;
   if(event.srcElement.id === '1'){
     allProducts[productIndex1].timesClicked++;
   } else if (event.srcElement[productIndex2] === '2'){
     allProducts[productIndex2].timesClicked++;
+    else if (event.srcElement[productIndex3] === '3'){
+      allProducts[productIndex2].timesClicked++;
+    }
   }
 
 
@@ -79,7 +82,7 @@ function imageWasClicked(event){
   }
 
 
-  //relfect the updates to the new values next pizzas
+  //relfect the updates to the new values next products
   //set up reference to new images.
   productIndex1 = nextProductIndex1;
   productIndex2 = nextProductIndex2;
@@ -87,9 +90,9 @@ function imageWasClicked(event){
 
   // For each of the three images, increment its property of times it has been shown by one.
 
-  imageElements[0].src = allProducts[productIndex1].imageUrl;
-  imageElements[1].src = allProducts[productIndex2].imageUrl;
-  imageElements[2].src = allProducts[productIndex3].imageUrl;
+  productElements[0].src = allProducts[productIndex1].imageUrl;
+  productElements[1].src = allProducts[productIndex2].imageUrl;
+  productElements[2].src = allProducts[productIndex3].imageUrl;
 
 
 if(totalClicks >= rounds){
@@ -102,7 +105,17 @@ if(totalClicks >= rounds){
 
 // Attach an event listener to the section of the HTML page where the images are going to be displayed.
 
-for(var i = 0; i < imageElements.length; i++){
+for(var i = 0; i < productElements.length; i++){
   console.log("You chose a product and I'm listening.");
-  imageElements[i].addEventListener('click', imageWasClicked);
+  productElements[i].addEventListener('click', productWasClicked);
+}
+
+var resultsElement=document.getElementById('results');
+
+Products.prototype.render = function(){
+  for (var i = 0; i < allProducts.length; i++){
+    allProducts = document.createElement(np);
+    var resultsStr = allProducts(i).name + 'was clicked:';
+    allProducts.textContent = resultsStr;
+    resultsElement.appendChild(); allProducts
 }
