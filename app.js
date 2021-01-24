@@ -14,7 +14,6 @@ console.log("Open for BusMall!");
 
 var imageElements = document.getElementsByTagName('img');
 
-
 var productIndex1 = 0;
 var productIndex2 = 1;
 
