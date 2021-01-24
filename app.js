@@ -12,7 +12,7 @@ console.log("Open for BusMall!");
 
 //These are in an html collection(array) use ref to image index instead of id's for tracking images shown we are still going to count total clicks and each image's click amount.
 
-var imageElements = document.getElementsByTagName('img');
+var productElements = document.getElementsByTagName('img');
 
 var productIndex1 = 0;
 var productIndex2 = 1;
@@ -21,7 +21,7 @@ var productIndex3 = 2;
 var rounds = 5;
 var allProducts = [];
 
-function newProduct(name, imageUrl){
+function Product(name, imageUrl){
   this.name = name;
   this.imageUrl = imageUrl;
   this.timesClicked = 0;
@@ -57,11 +57,13 @@ function productWasClicked(event){
   totalClicks++;
   if(event.srcElement.id === '1'){
     allProducts[productIndex1].timesClicked++;
-  } else if (event.srcElement[productIndex2] === '2'){
+  } 
+  
+  else if (event.srcElement[productIndex2] === '2'){
     allProducts[productIndex2].timesClicked++;
+  }
     else if (event.srcElement[productIndex3] === '3'){
       allProducts[productIndex2].timesClicked++;
-    }
   }
 
 
@@ -81,7 +83,6 @@ function productWasClicked(event){
     nextProductIndex3 = Math.floor(Math.random() * allProducts.length);
   }
 
-
   //relfect the updates to the new values next products
   //set up reference to new images.
   productIndex1 = nextProductIndex1;
@@ -96,9 +97,9 @@ function productWasClicked(event){
 
 
 if(totalClicks >= rounds){
-    var footerElement = document.getElementsByTagName('footer')[0];
-    if(footerElement.firstElementChild){
-      footerElement.firstElementChild.remove();
+    var asideElement = document.getElementsByTagName('aside')[0];
+    if(asideElement.firstElementChild){
+      asideElement.firstElementChild.remove();
     }
     footerElement.textContent = 'You chose 5 products. Thank you for your input!';
   }//closing image was clicked.
@@ -117,5 +118,5 @@ Products.prototype.render = function(){
     allProducts = document.createElement(np);
     var resultsStr = allProducts(i).name + 'was clicked:';
     allProducts.textContent = resultsStr;
-    resultsElement.appendChild(); allProducts
+    resultsElement.appendChild(); allProducts;
 }
