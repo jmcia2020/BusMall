@@ -21,7 +21,7 @@ var productIndex3 = 2;
 var rounds = 5;
 var allProducts = [];
 
-function Product(name, imageUrl){
+function newProduct(name, imageUrl){
   this.name = name;
   this.imageUrl = imageUrl;
   this.timesClicked = 0;
@@ -74,8 +74,8 @@ function imageWasClicked(event){
   }
 
   var nextProductIndex3 = Math.floor(Math.random() * allProducts.length);
-  while((nextProductIndex3 === productIndex3) || (nextProductIndex3 === nextProductIndex2 || === nextProductIndex3)){
-    nextProductIndex2 = Math.floor(Math.random() * allProducts.length);
+  while((nextProductIndex3 === productIndex3) || (nextProductIndex3 === nextProductIndex2 || === nextProductIndex1)){
+    nextProductIndex3 = Math.floor(Math.random() * allProducts.length);
   }
 
 
