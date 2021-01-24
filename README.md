@@ -1,8 +1,9 @@
-# BusMall
-Lab: BusMall
-Read the document in its entirety before beginning your lab. To view this lab assignment in its own tab, click HERE{:target="_blank"}
+# Lab: BusMall
+# Author: Jean McMahon
 
-Problem Domain
+Read the document in its entirety before beginning your lab. 
+
+## Problem Domain
 You've been hired by a startup called BusMall, whose product is similar to the SkyMall catalog found in the seatback pockets on airplanes: a catalog of assorted high-markup products provided to a captive audience seeking a mental escape from the drudgery of travel. The difference with BusMall is that instead of their catalog being placed in airplanes, they are placed on local busses while commuting through traffic.
 
 Since catalogs are expensive to print and distribute, and the products cost money to make and warehouse, and BusMall is a lean startup that needs to carefully watch its expenditures, BusMall wants to feature only the items in its catalog that are the most likely to sell.
@@ -19,7 +20,7 @@ The marketing team is not only interested in the total number of clicks, but als
 
 You are also responsible for the look and feel of the app, so don't forget a custom font, color palette, layout with semantic HTML, and so on.
 
-User Stories
+## User Stories
 User stories are a device commonly used in software development to identify what the functionality and design of a product should be by considering the interests and motivations of people with varied multiple points of view. They are presented in the manner of
 
 As a ____, I want ____, so that ____
@@ -30,7 +31,7 @@ The development team will then create sub-bullets called Feature Tasks which are
 
 Below are your lab requirements in this format. Try and think up what the feature tasks would be for each story, once your done, or you get stuck, review the provided feature tasks to see what the actual tasks are for each story.
 
-Instructions
+## Instructions
 As a user, I would like to display three unique products by chance so that the viewers can pick a favorite.
 
 Create a constructor function that creates an object associated with each product, and has the following properties:

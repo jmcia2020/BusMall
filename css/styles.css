@@ -9,9 +9,9 @@ header{
 }
 
 header img{
-    height: 50px;
-    width: 50px;
-    margin-top: 10px 100px 0px 25px;
+    height: 55px;
+    width: 55px;
+    margin-top: 2px 100px 0px 30px;
     padding-right: 100px;
     float: left;
 } 
@@ -38,10 +38,6 @@ li{
     color: #111D43;
 }
 
-ol{
-    /* display:inline-block */
-}
-
 .flex-container {
     display: flex;
   }
@@ -51,6 +47,7 @@ ol{
     margin: 10px;
     padding: 20px;
     font-size: 20px;
+    color: #111D43;
     justify-content: center;
     align-items: center;        /* for single line flex container */
   }
@@ -61,10 +58,12 @@ section div img{
 }
 
 p{
-    border-color: orangered;
-    border: 5px;
-    float: left;
+    border-color: #EE4035;
+    border-top: 5px;
+    margin-top: 30px;
+    margin-bottom: 10px;
     margin-left: 175px;
+    color: #111D43;
 }   
 
 footer{
@@ -72,4 +71,6 @@ footer{
     height: 100px;
     margin-top: 10px;
     background-color:#C6DEFF;
+    border-top: #EE4035;
+    border-top: 5px;
 }
