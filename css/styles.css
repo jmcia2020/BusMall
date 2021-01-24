@@ -1,7 +1,7 @@
 h1{
-    font-size: 50px;
-    background-color: aqua;
-    color: midnightblue;
+    font-size: 35px;
+    background-color:#C6DEFF;
+    color: #111D43;
 }
 
 ul{
@@ -12,11 +12,11 @@ ul{
 }
 
 li{
-    color: midnightblue;
+    color: #111D43;
 }
 
 ol{
-    display:inline-block
+    /* display:inline-block */
 }
 
 .flex-container {
@@ -27,7 +27,9 @@ ol{
     background-color: #f1f1f1;
     margin: 10px;
     padding: 20px;
-    font-size: 30px;
+    font-size: 24px;
+    justify-content: center;
+    align-items: center;        /* for single line flex container */
   }
 
 section div img{
@@ -35,10 +37,12 @@ section div img{
     width: 300px;
 }
 
-section p{
-    color: midnightblue;
+p{
+    border-color: #111D43;
+    border: 3px;
 }   
 
 footer{
     height: 100px;
+    background-color:#C6DEFF;
 }
