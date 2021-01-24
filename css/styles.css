@@ -1,14 +1,37 @@
-h1{
-    font-size: 35px;
+
+header{
     background-color:#C6DEFF;
-    color: #111D43;
+    height: 60px;
+    margin: 0%;
+    border-bottom: #EE4035;
+    border-bottom: 5px;
+    align-items: center; 
+}
+
+header img{
+    height: 50px;
+    width: 50px;
+    margin-top: 10px 100px 0px 25px;
+    padding-right: 100px;
+    float: left;
+} 
+
+h1{
+    float: left;
+    margin-top: 10px;
+    font-size: 36px;
+    font-style: italic;
+    font-weight: bold; 
+    color: #EE4035;
 }
 
 ul{
     background-color: #dddddd;
+    margin: 10px 20px 10px 0px;
     float:left;
-    height:300px;
-    width: 50px;
+    height:500px;
+    width: 150px;
+    color: #EE4035;
 }
 
 li{
@@ -27,7 +50,7 @@ ol{
     background-color: #f1f1f1;
     margin: 10px;
     padding: 20px;
-    font-size: 24px;
+    font-size: 20px;
     justify-content: center;
     align-items: center;        /* for single line flex container */
   }
@@ -38,11 +61,15 @@ section div img{
 }
 
 p{
-    border-color: #111D43;
-    border: 3px;
+    border-color: orangered;
+    border: 5px;
+    float: left;
+    margin-left: 175px;
 }   
 
 footer{
+    clear: both;
     height: 100px;
+    margin-top: 10px;
     background-color:#C6DEFF;
 }
