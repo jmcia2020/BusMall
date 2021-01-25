@@ -109,6 +109,12 @@ function roundsComplete (){
   }//closing image was clicked.
 }
 
+function removeListener(){
+  for(var i = 0; i < productElements.length; i++){
+    productElements[i].removeListener('click', ifproductWasClicked);
+  }
+}
+
 function 
   Product(name, imageUrl){
   this.name = name;
@@ -118,7 +124,7 @@ function
   allProducts.push(this);
 }
 
-function results(){
+function createResults(){
   var resultsElement=document.getElementById('results');
 
   Product.prototype.render = function(){
