@@ -5,6 +5,9 @@ var nextProductIndex1 = 0;
 var nextProductIndex2 = 0;
 var nextProductIndex3 = 0;
 var allProducts = [];
+var totalClicks = 0;
+var rounds = 5;
+
 
 collectMarketingData();
 
@@ -13,6 +16,9 @@ function collectMarketingData (){
   selectRandomProducts ();
   displayRandomProducts ();
   countTimesImagesShown ();
+  productWasClicked ();
+  roundsComplete ();
+  results ();
 }
 
 function createProductCatalog (){
@@ -72,9 +78,8 @@ function countTimesImagesShown (){
   allProducts[nextProductIndex3].timesShown++;
 }
 
-var totalClicks = 0;
-function productWasClicked(event)
-{  totalClicks++;
+function productWasClicked(event){ 
+  totalClicks++;
   if(event.srcElement[nextProductIndex1] === '1')
   {
     allProducts[nextProductIndex1].timesClicked++;
@@ -92,14 +97,20 @@ function productWasClicked(event)
   selectRandomProducts ();
   displayRandomProducts ();
   countTimesImagesShown ();
-    
 }
 
-  
-var rounds = 5;
+function roundsComplete (){
+  if(totalClicks >= rounds){
+    var asideElement = document.getElementsByTagName('aside')[0];
+    if(asideElement.firstElementChild){
+      asideElement.firstElementChild.remove();
+    }
+    footerElement.textContent = 'You chose 5 products. Thank you for your input!';
+  }//closing image was clicked.
+}
 
-
-function Product(name, imageUrl){
+function 
+  Product(name, imageUrl){
   this.name = name;
   this.imageUrl = imageUrl;
   this.timesClicked = 0;
@@ -107,25 +118,15 @@ function Product(name, imageUrl){
   allProducts.push(this);
 }
 
- 
+function results(){
+  var resultsElement=document.getElementById('results');
 
-
-if(totalClicks >= rounds){
-    var asideElement = document.getElementsByTagName('aside')[0];
-    if(asideElement.firstElementChild){
-      asideElement.firstElementChild.remove();
+  Product.prototype.render = function(){
+    for (var i = 0; i < allProducts.length; i++){
+      allProducts = document.createElement(np);
+      var resultsStr = allProducts(i).name + 'was clicked:';
+      allProducts.textContent = resultsStr;
+      resultsElement.appendChild(); allProducts;
     }
-    footerElement.textContent = 'You chose 5 products. Thank you for your input!';
-  }//closing image was clicked.
-
-
-var resultsElement=document.getElementById('results');
-
-Product.prototype.render = function(){
-  for (var i = 0; i < allProducts.length; i++){
-    allProducts = document.createElement(np);
-    var resultsStr = allProducts(i).name + 'was clicked:';
-    allProducts.textContent = resultsStr;
-    resultsElement.appendChild(); allProducts;
-}
-}
+  }
+} 
