@@ -1,12 +1,12 @@
 "use strict";
 console.log("Open for BusMall!");
-// localStorage.clear()
+
 var pageData = getPageData();
 setProductImages();
 
 function getPageData() {
   if (localStorage.getItem('pageData')){
-    return JSON.parse(localStorage.getItem(pageData));
+    return JSON.parse(localStorage.getItem('pageData'));
   }
   else {
     let pageData = {
@@ -22,11 +22,12 @@ function getPageData() {
   }
 }
 
-function Product(name, imageUrl){
+function Product(name, imageUrl, chartColor){
   this.name = name;
   this.imageUrl = imageUrl;
   this.timesClicked = 0;
   this.timesShown = 0;
+  this.chartColor = chartColor;
 }
 
 function setProductImages() {
@@ -39,25 +40,25 @@ function setProductImages() {
 
 function createProductCatalog (){
   return [
-  new Product('Bag', 'images/bag.jpg'),
-  new Product('Banana', 'images/banana.jpg'),
-  new Product('Bathroom', 'images/bathroom.jpg'),
-  new Product('Boots', 'images/boots.jpg'),
-  new Product('Breakfast', 'images/breakfast.jpg'),
-  new Product('Bubblegum', 'images/bubblegum.jpg'),
-  new Product('Chair', 'images/chair.jpg'),
-  new Product('Cthulhu', 'images/cthulhu.jpg'),
-  new Product('Dog-Duck', 'images/dog-duck.jpg'),
-  new Product('Dragon', 'images/dragon.jpg'),
-  new Product('Pen', 'images/pen.jpg'),
-  new Product('Pet-Sweep', 'images/pet-sweep.jpg'),
-  new Product('Scissors', 'images/scissors.jpg'),
-  new Product('Shark', 'images/shark.jpg'),
-  new Product('Tauntaun', 'images/tauntaun.jpg'),
-  new Product('Unicorn', 'images/unicorn.jpg'),
-  new Product('USB', 'images/usb.gif'),
-  new Product('Water-Can', 'images/water-can.jpg'),
-  new Product('Wine-Glass', 'images/wine-glass.jpg'),
+  new Product('Bag', 'images/bag.jpg','#A1A3C8'),
+  new Product('Banana', 'images/banana.jpg', '#F4C815'),
+  new Product('Bathroom', 'images/bathroom.jpg','#B2B2B2'),
+  new Product('Boots', 'images/boots.jpg','#EAE5B3'),
+  new Product('Breakfast', 'images/breakfast.jpg','#A8A0C6'),
+  new Product('Bubblegum', 'images/bubblegum.jpg','#00A34A'),
+  new Product('Chair', 'images/chair.jpg','#A4EEF1'),
+  new Product('Cthulhu', 'images/cthulhu.jpg','#003207'),
+  new Product('Dog-Duck', 'images/dog-duck.jpg','#A15D98'),
+  new Product('Dragon', 'images/dragon.jpg','#FE7578'),
+  new Product('Pen', 'images/pen.jpg','#0114A6'),
+  new Product('Pet-Sweep', 'images/pet-sweep.jpg','#A4EEF1'),
+  new Product('Scissors', 'images/scissors.jpg','#B88ECE'),
+  new Product('Shark', 'images/shark.jpg','#D1403C'),
+  new Product('Tauntaun', 'images/tauntaun.jpg','#8B6D4D'),
+  new Product('Unicorn', 'images/unicorn.jpg','#183150'),
+  new Product('USB', 'images/usb.gif','#77AA5F'),
+  new Product('Water-Can', 'images/water-can.jpg','#4382BB'),
+  new Product('Wine-Glass', 'images/wine-glass.jpg','#D284A1'),
   ];
 }
 
@@ -119,10 +120,14 @@ function showResults() {
   if (pageData.totalClicks > pageData.roundsBeforeDisplay) {
     var marketingResultList = document.getElementById('marketingResults');
     marketingResultList.innerHTML = '';
+
     for (var product of pageData.productCatalog) {
       marketingResultList.appendChild(createListItem(product.name, product.timesClicked));
     }
+
+    drawChart();
   }
+  
 }
 
 
