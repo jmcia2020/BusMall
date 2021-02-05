@@ -3,15 +3,15 @@ header{
     background-color:#C6DEFF;
     height: 60px;
     margin: 0%;
-    border-bottom: #EE4035;
-    border-bottom: 5px;
+    border-bottom: 5px solid #EE4035;
+    border-top: 5px solid #EE4035;
     align-items: center; 
 }
 
 header img{
     height: 55px;
-    width: 55px;
-    margin-top: 2px 100px 0px 30px;
+    width: 70px;
+    margin-top: 2px 100px 2px 10px;
     padding-right: 100px;
     float: left;
 } 
@@ -19,32 +19,36 @@ header img{
 h1{
     float: left;
     margin-top: 10px;
-    font-size: 36px;
+    padding-left: 55px;
+    font-size: 40px;
     font-style: italic;
     font-weight: bold; 
     color: #EE4035;
 }
 
-ul{
-    /* background-color: #dddddd;
-    margin: 10px 20px 10px 0px;
-    float:left;
-    height:500px;
-    width: 150px;
-    color: #EE4035; */
+h2{
+    color: #EE4035;
+    text-shadow: 3px 2px 2px #C6DEFF;
+    font-size: larger; 
+    font-weight: bold;
+    padding:5px 10px 10px 10px;
 }
 
 aside{
     background-color: #dddddd;
-    margin: 10px 20px 10px 0px;
+    margin: 10px 20px 10px 5px;
     float:left;
-    height:500px;
-    width: 150px;
-    color: #EE4035; 
+    height:525px;
+    width: 250px;
+    box-shadow: 5px #C6DEFF;
 }
 
 li{
     color: #111D43;
+    margin-left: 20px;
+    font-size: medium;
+    font-weight: normal;
+    line-height: 1.25em;
 }
 
 .flex-container {
@@ -62,8 +66,8 @@ li{
   }
 
 section div img{
-    height: 300px;
-    width: 300px;
+    height: 350px;
+    width: 350px;
 }
 
 p{
@@ -80,6 +84,6 @@ footer{
     height: 100px;
     margin-top: 10px;
     background-color:#C6DEFF;
-    border-top: #EE4035;
-    border-top: 5px;
+    border-top: 5px solid #EE4035;
+    border-bottom: 5px solid #EE4035;
 }
